@@ -47,11 +47,11 @@ def remove_preprocess(st) :
             st = st[:deb]
     return st
 
-content = "".join(open("acl_add_perm.c").readlines())
+#content = "".join(open("acl_add_perm.c").readlines())
 
-print(content)
-print("===========================")
-print(remove_preprocess(remove_c_comments(content)))
+#print(content)
+#print("===========================")
+#print(remove_preprocess(remove_c_comments(content)))
 
-#print(sashimi_char("ffffffffflwefkwejf", 'p'))
-#print(remove_char("ffffffffflwefkwejf", 'f'))
+#print(sashimi_char("ffffffffflwefkwejf", 'f'))
+print(remove_char("ffffffffflwefkwejf", 'f'))
