@@ -2,7 +2,6 @@ import random
 
 
 def shake_my_sent(t):
-
   sem = 0
 
   if t[-1] == ";":
@@ -24,14 +23,16 @@ def print_tab_lines(t):
 
 
 def make_sent(t):
-  print("".join(t))
+  return ("".join(t))
+
 
 tab = ["a", "=", "c", "+", "d", ";"]
 tap = ["a", "=", "c", "+", "d"]
 
 shake_my_sent(tab)
+pouet = make_sent(tab)
 
-print(tab)
-make_sent(tab)
-
+nameSave = "clearLines.txt"
+file = open(nameSave, "a")
+file.write(pouet)
 
