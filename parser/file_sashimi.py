@@ -1,12 +1,17 @@
+delimiters = [' ', '*', '/', ',', ';', '(', ')', '[', ']', '{', '}','=', '<', '>', '+', '-', '&', '|', '!']
+
 def sashimi_char(st,c):
     tab = []
     it = 0
     a = 0
-    while st[a] == c :
+    if st == '' :
+        return []
+    while a<len(st) and st[a] == c :
         it += 1
         tab.append(c)
         a +=1
-    tab.append(st[a])
+    if a < len(st) :
+        tab.append(st[a])
     a+=1
     for i in st[a:] :
         if i==c :
@@ -18,20 +23,28 @@ def sashimi_char(st,c):
             tab[it] = tab[it] + i
         a += 1
     return tab
-"""
 
-def sashimi_words(t,w):
-    tab = []
+def sashimi_lines(tab):
+    t = []
     it = 0
-    a = 0
-    for st in t :
-        while st.find(w) != -1:
-            if len(st) > st.find(w) + len(w) + 1 :
-                if st[st.find(w) + len(w) + 1] == ' ' :
-                    if st.find(w) == 0 :
-                        tab.append(w)
-    return tab
-"""
+    it2 = 0
+    for word in tab :
+        if it2 == 0 and word != '}' :
+            t.append([])
+        if word == '{' or word == ';' :
+            t[it].append(word)
+            it+=1
+            it2=0
+        else :
+            if word == '}' :
+                it += 1
+                it2 = 0
+                t.append([word])
+            else :
+                t[it].append(word)
+                it2 += 1
+    return t
+
 def remove_char(st, c) :
     return "".join([i for i in st if i != c])
 
@@ -40,18 +53,12 @@ def remove_c_comments(st) :
     while st.find('/*') != -1:
         if st.find('/*') != -1 and st.find('*/') != -1 :
             a = st.find('/*')
-            print("deb = ",  str(a))
             b = st.find('*/')
-            print("fin = ",  str(b))
-
             if a < b :
                 st = st[:a] + st[b+2:]
             else:
                 return "Erreur"
     return st
-
-
-
 
 def remove_preprocess(st) :
     while st.find('#') != -1 :
@@ -73,6 +80,18 @@ def remove_cpp_comment(st):
             st = st[:deb]
     return st
 
+def remove_space(t) :
+    tab = []
+    it = 0
+    for line in t :
+        tab.append([])
+        for word in line :
+            if word != ' ':
+                tab[it].append(word)
+        it +=1
+    return tab
+
+
 
 keywords = ["auto","break","case","char","const","continue","default",
     "do","double","else","enum","extern","float","for","goto",
@@ -80,16 +99,7 @@ keywords = ["auto","break","case","char","const","continue","default",
     "sizeof","static","struct","switch","typedef","union",
     "unsigned","void","volatile","while"]
 
-
-
 content = "".join(open("acl_add_perm.c").readlines())
-
-print(content)
-print("===========================")
-#print(remove_preprocess(remove_c_comments(content)))
-#print(sashimi_char("ffffffffflwefkwejf", 'f'))
-
-#premiers a enlever, sensible au retour a la ligne
 
 content = remove_c_comments(remove_preprocess(content))
 
@@ -97,10 +107,19 @@ content = remove_c_comments(remove_preprocess(content))
 
 content = remove_cpp_comment(content)
 content = remove_char(content, '\t')
+content = remove_char(content,'\n')
 
-#sashimi premiere vague
+#sashimi caracteres de separation !
 
-content = remove_char(content, '\n')
-sa
-
-print(content)
+lines = [content]
+for deli in delimiters :
+    t = []
+    for line in lines :
+        if (line != deli) :
+            t += sashimi_char(line, deli)
+        else :
+            t += deli
+    lines = t
+li = sashimi_lines(lines)
+lines = remove_space(li)
+print(lines)
