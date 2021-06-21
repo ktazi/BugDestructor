@@ -18,7 +18,20 @@ def sashimi_char(st,c):
             tab[it] = tab[it] + i
         a += 1
     return tab
+"""
 
+def sashimi_words(t,w):
+    tab = []
+    it = 0
+    a = 0
+    for st in t :
+        while st.find(w) != -1:
+            if len(st) > st.find(w) + len(w) + 1 :
+                if st[st.find(w) + len(w) + 1] == ' ' :
+                    if st.find(w) == 0 :
+                        tab.append(w)
+    return tab
+"""
 def remove_char(st, c) :
     return "".join([i for i in st if i != c])
 
@@ -37,6 +50,9 @@ def remove_c_comments(st) :
                 return "Erreur"
     return st
 
+
+
+
 def remove_preprocess(st) :
     while st.find('#') != -1 :
         deb = st.find('#')
@@ -47,11 +63,44 @@ def remove_preprocess(st) :
             st = st[:deb]
     return st
 
-#content = "".join(open("acl_add_perm.c").readlines())
+def remove_cpp_comment(st):
+    while st.find('//') != -1:
+        deb = st.find('//')
+        fin = st[deb:].find('\n') + deb
+        if fin != -1:
+            st = st[:deb] + st[fin:]
+        else:
+            st = st[:deb]
+    return st
 
-#print(content)
-#print("===========================")
+
+keywords = ["auto","break","case","char","const","continue","default",
+    "do","double","else","enum","extern","float","for","goto",
+    "if","int","long","register","return","short","signed",
+    "sizeof","static","struct","switch","typedef","union",
+    "unsigned","void","volatile","while"]
+
+
+
+content = "".join(open("acl_add_perm.c").readlines())
+
+print(content)
+print("===========================")
 #print(remove_preprocess(remove_c_comments(content)))
-
 #print(sashimi_char("ffffffffflwefkwejf", 'f'))
-print(remove_char("ffffffffflwefkwejf", 'f'))
+
+#premiers a enlever, sensible au retour a la ligne
+
+content = remove_c_comments(remove_preprocess(content))
+
+#second a enlever
+
+content = remove_cpp_comment(content)
+content = remove_char(content, '\t')
+
+#sashimi premiere vague
+
+content = remove_char(content, '\n')
+sa
+
+print(content)

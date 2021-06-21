@@ -21,10 +21,10 @@
 
 #include "libacl.h"
 
-
+//tessst
 /* 23.4.1 */
 int
-acl_add_perm(acl_permset_t permset_d, acl_perm_t perm)
+acl_add_perm(acl_permset_t permset_d, acl_perm_t perm) //test
 {
 	acl_permset_obj *acl_permset_obj_p = ext2int(acl_permset, permset_d);
 	if (!acl_permset_obj_p || (perm & !(ACL_READ|ACL_WRITE|ACL_EXECUTE)))
@@ -32,4 +32,4 @@ acl_add_perm(acl_permset_t permset_d, acl_perm_t perm)
 	acl_permset_obj_p->sperm |= perm;
 	return 0;
 }
-
+//test
