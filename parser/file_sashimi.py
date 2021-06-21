@@ -91,35 +91,32 @@ def remove_space(t) :
         it +=1
     return tab
 
+def sashimi_file(link):
+    content = "".join(open("acl_add_perm.c").readlines())
+    #removing all the comments
+    content = remove_c_comments(remove_preprocess(content))
+    content = remove_cpp_comment(content)
+    content = remove_char(content, '\t')
+    content = remove_char(content,'\n')
+
+    #sashimi caracteres de separation !
+
+    lines = [content]
+    for deli in delimiters :
+        t = []
+        for line in lines :
+            if (line != deli) :
+                t += sashimi_char(line, deli)
+            else :
+                t += deli
+        lines = t
+    #sashimi lignes
+    li = sashimi_lines(lines)
+    lines = remove_space(li)
+    return lines
+
+print(sashimi_file("acl_add_perm.c"))
 
 
-keywords = ["auto","break","case","char","const","continue","default",
-    "do","double","else","enum","extern","float","for","goto",
-    "if","int","long","register","return","short","signed",
-    "sizeof","static","struct","switch","typedef","union",
-    "unsigned","void","volatile","while"]
 
-content = "".join(open("acl_add_perm.c").readlines())
 
-content = remove_c_comments(remove_preprocess(content))
-
-#second a enlever
-
-content = remove_cpp_comment(content)
-content = remove_char(content, '\t')
-content = remove_char(content,'\n')
-
-#sashimi caracteres de separation !
-
-lines = [content]
-for deli in delimiters :
-    t = []
-    for line in lines :
-        if (line != deli) :
-            t += sashimi_char(line, deli)
-        else :
-            t += deli
-    lines = t
-li = sashimi_lines(lines)
-lines = remove_space(li)
-print(lines)
