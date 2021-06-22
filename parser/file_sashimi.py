@@ -7,6 +7,8 @@ def sashimi_char(st, c):
     a = 0
     if st == '':
         return []
+    if st[0] == '"' :
+        return [st]
     while a < len(st) and st[a] == c:
         it += 1
         tab.append(c)
