@@ -1,5 +1,5 @@
-delimiters = [' ', '*', '/', ',', ';', '(', ')', '[', ']', '{', '}', '=', '<', '>', '+', '-', '&', '|', '!','?',':']
 
+delimiters = [' ', '*', '/', ',', ';', '(', ')', '[', ']', '{', '}', '=', '<', '>', '+', '-', '&', '|', '!','?',':']
 
 def sashimi_char(st, c):
     tab = []
@@ -106,6 +106,33 @@ def remove_blank_table(t) :
             ta.append(it)
     return ta
 
+def sashimi_string(st):
+    t = []
+    while st.find('"') != -1:
+        if st[st.find('"'):].find('"') != -1 :
+            t.append(st[:st.find('"')])
+            t.append(st[st.find('"'): st[st.find('"')+1:].find('"')+st.find('"')+2])
+            st = st[st[st.find('"')+1:].find('"')+st.find('"')+2:]
+        else :
+            st = st[st.find('"')+1:]
+    t.append(st)
+    return remove_blank_table(t)
+
+def sashimi_ch(ta):
+    t = []
+    for st in ta :
+        if st[0] != '"' :
+            while st.find("'") != -1:
+                if st[st.find("'"):].find("'") != -1 :
+                    t.append(st[:st.find("'")])
+                    t.append(st[st.find("'"): st[st.find("'")+1:].find("'")+st.find("'")+2])
+                    st = st[st[st.find("'")+1:].find("'")+st.find("'")+2:]
+                else :
+                    st = st[st.find("'")+1:]
+            t.append(st)
+    return remove_blank_table(t)
+
+
 def sashimi_file(link):
     content = "".join(open(link).readlines())
     # removing all the comments
@@ -113,10 +140,10 @@ def sashimi_file(link):
     content = remove_cpp_comment(content)
     content = remove_char(content, '\t')
     content = remove_char(content, '\n')
-
+    #sashimi string et char
+    lines = sashimi_string(content)
+    print(lines)
     # sashimi caracteres de separation !
-
-    lines = [content]
     for deli in delimiters:
         t = []
         for line in lines:
@@ -125,11 +152,14 @@ def sashimi_file(link):
             else:
                 t += deli
         lines = t
+
     # sashimi lignes
+
+
     li = sashimi_lines(lines)
     lines = remove_space(li)
     lines = remove_blank_table(lines)
     return lines
 
 
-print(sashimi_file("gtk-hotkey-registry.c"))
+print(sashimi_file("gtk-hotkey-marshal.c"))
