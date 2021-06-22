@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="home.css">
+    <title>Projet Voltaire 2.0</title>
+    <link rel="shortcut icon" type="image/png" href="img/img-logo.png" />
+    <script src="https://kit.fontawesome.com/eea079109c.js" crossorigin="anonymous"></script>
+</head> 
+
+<body> 
+    <!-- Header -->
+    <section id="header">
+        <div class="header container">
+            <div class="nav-bar">
+                <div class="brand">
+                    <h1 onclick="topFunction()" id="home-logo"><span>Le </span>Projet <span>Voltaire </span>2.0</h1>
+                </div>
+                <div class="nav-list">
+                    <div class="hamburger"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End Header -->
+    <!-- Home cover -->
+    <section id="home-cover">
+        <div class="home-cover container">
+            <div>
+                <h1>Projet voltaire 2.0<span></span></h1>
+                <a href="#interfaces" type="button" class="cta">Verification de mon code</a>
+            </div>
+        </div>
+    </section>
+    <!-- End Home cover -->
+    <!-- Our services section -->
+    <section id="services">
+        <div class="services container">
+            <div class="service-top">
+                <h1 class="section-title">Projet Voltaire <span>2.0</span></h1>
+                <p>Apprendre à coder c’est apprendre une nouvelle langue, une nouvelle syntaxe, une nouvelle façon de nous exprimer !
+                    C’est pour cela que nous vous proposons Projet Voltaire 2.0 ! plus qu’un debugger de code, Projet Voltaire 2.0 sera votre allié pour affronter le monde de la programmation.
+                </p>
+            </div>
+            <div class="service-bottom">
+                <div class="service-item">
+                    <div class="icon"><img src="./img/home/temps-rapide.png" /></div>
+                    <h2>Rapide</h2>
+                    <p>Analyse votre code en quelques secondes !</p>
+                </div>
+                <div class="service-item">
+                    <div class="icon"><img src="./img/home/checkmark.png" /></div>
+                    <h2>Précis</h2>
+                    <p>Trouve tous les problèmes d'innatention de votre code!</p>
+                </div>
+                <div class="service-item">
+                    <div class="icon"><img src="./img/home/contour-de-vue-superieure-du-cerveau.png" /></div>
+                    <h2>Intuitif</h2>
+                    <p>Une interface pensez pour vous!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- End Our services section -->
+ 
+    <!-- Recent painting section -->
+    <section id="interfaces">
+        <div class="interfaces container">
+            <div class="interfaces-header">
+                <section id="text_intro">
+                    <h1>Vous êtes <span>prêt</span> ? C'est parti !!</h1> 
+                </section>
+                <h1 class="section-title">Votre <span>code  </span>:</h1>
+                <div class="dropdown">
+                    <button class="dropbtn">Votre langage : 
+                      <i class="fa fa-caret-down"></i>
+                    </button>
+                    <div class="dropdown-content">
+                      <a>Python</a>
+                      <a>JAVA</a>
+                      <a>C++</a>
+                      <a>C#</a>
+                      <a>HTML</a>
+                      <a>CSS</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="all-interfaces">
+                <div class="interface-item">
+                    <div class="interface-info">
+                        <div class="text">
+                            <p>Mon code</p>
+                        </div>
+                        <form method="post" action="traitement.php">
+                            <p>
+                                <label for="ameliorer">
+                                </label>
+                                <br />
+                                <textarea name="ameliorer" id="ameliorer" rows="20" cols="60">
+                                </textarea>       
+                            </p>
+                         </form>
+                    </div>
+                    <div class="interface-info">
+                        <div class="text">
+                            <p>Notre solution</p>
+                        </div>
+                        <form method="post" action="traitement.php">
+                            <p>
+                                <label for="correction">
+                                </label>
+                                <br />
+                                <textarea name="correction" id="correction" rows="20" cols="60">
+                                </textarea>       
+                            </p>
+                         </form>
+                    </div>
+                </div>
+                <div>
+                    <a href="#interfaces" type="button" class="btn">Verification de mon code</a>
+                </div>
+            </div>
+        </div>
+    
+    </section> 
+
+
+    <!-- End Recent painting section -->
+
+    <!-- Footer -->
+    <section id="footer">
+        <div class="footer container">
+        
+            <div class="brand">
+                <h1><span>Le</span> Projet  <span>Voltaire </span>2.0</h1>
+            </div>
+            <div class="social-icon">
+                <div class="social-item">
+                    <a href="https://www.facebook.com/museedulouvre/"><img src="https://img.icons8.com/metro/26/000000/facebook-new--v2.png" /></a>
+                </div>
+                <div class="social-item">
+                    <a href="https://www.instagram.com/museelouvre/?hl=fr"><img src="https://img.icons8.com/metro/26/000000/instagram-new.png" /></a>
+                </div>
+                <div class="social-item">
+                    <a href="https://www.youtube.com/channel/UCafm6w_rPndqAtokQy04Jdw"><img src="https://img.icons8.com/metro/26/000000/youtube.png" /></a>
+                </div>
+            </div>
+            <p>Copyright © 2020 Team 242</p>
+        </div>
+    </section>
+    <!-- End Footer -->
+    <script src="./home.js"></script>
+</body>
+
+</html>
