@@ -1,4 +1,5 @@
 import random
+import file_sashimi as sash
 
 
 def shake_my_sent(t):
@@ -39,11 +40,15 @@ def write_sents(t):
     file.write("\n")
 
 
+test = sash.sashimi_file('gtk-hotkey-marshal.c')
+print(test)
+
 tab = [["a", "=", "c", "+", "d", ";"], ["a", "=", "c", "+", "d"], ["if", "a", "<", "b", "{"]]
 #tap = ["a", "=", "c", "+", "d"]
 #tac = ["if", "a", "<", "b", "{"]
 
-suprem_check(tab)
+suprem_check(test)
+write_sents(test)
 print(tab)
 
 

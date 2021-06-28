@@ -1,3 +1,4 @@
+
 delimiters = [' ', '*', '/', ',', ';', '(', ')', '[', ']', '{', '}', '=', '<', '>', '+', '-', '&', '|', '!','?',':']
 
 def sashimi_char(st, c):
@@ -120,23 +121,17 @@ def sashimi_string(st):
     return remove_blank_table(t)
 
 def sashimi_ch(ta):
-    tab = []
-    print(ta)
-    for tt in ta :
-        t = []
-        for st in tt :
-            if st[0] != '"' :
-                while st.find("'") != -1:
-                    if st[st.find("'"):].find("'") != -1 :
-                        t.append(st[:st.find("'")])
-                        t.append(st[st.find("'"): st[st.find("'")+1:].find("'")+st.find("'")+2])
-                        st = st[st[st.find("'")+1:].find("'")+st.find("'")+2:]
-                    else :
-                        st = st[st.find("'")+1:]
-                t.append(st)
-            else :
-                t.append(st)
-        tab.append(t)
+    t = []
+    for st in ta :
+        if st[0] != '"' :
+            while st.find("'") != -1:
+                if st[st.find("'"):].find("'") != -1 :
+                    t.append(st[:st.find("'")])
+                    t.append(st[st.find("'"): st[st.find("'")+1:].find("'")+st.find("'")+2])
+                    st = st[st[st.find("'")+1:].find("'")+st.find("'")+2:]
+                else :
+                    st = st[st.find("'")+1:]
+            t.append(st)
     return remove_blank_table(t)
 
 
@@ -149,6 +144,7 @@ def sashimi_file(link):
     content = remove_char(content, '\n')
     #sashimi string et char
     lines = sashimi_string(content)
+    print(lines)
     # sashimi caracteres de separation !
     for deli in delimiters:
         t = []
@@ -158,9 +154,14 @@ def sashimi_file(link):
             else:
                 t += deli
         lines = t
+
     # sashimi lignes
+
+
     li = sashimi_lines(lines)
     lines = remove_space(li)
     lines = remove_blank_table(lines)
-    lines = sashimi_ch(lines)
     return lines
+
+
+print(sashimi_file("gtk-hotkey-marshal.c"))

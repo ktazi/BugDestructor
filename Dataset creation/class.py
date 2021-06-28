@@ -1,3 +1,4 @@
+import file_sashimi as fs
 
 def isOperator(string):
     list = ['+','-','/']
@@ -7,6 +8,8 @@ def isOperator(string):
     return False
 
 def isValue(string):
+    #print('AAAAAAAAAAAAAAAAAAAAAAAAAA')
+    #print(string)
     if (string.isnumeric() == True or string.replace('.','',1).isdigit()) or ((string[0] == "'" and string[-1]) == "'" or (string[0] == "\"" and string[-1] == "\"")):
         return True
     return False
@@ -206,7 +209,14 @@ for i in Type:
    print(i , " : ", cpt)
    cpt +=1
 
-print(tab) 
+#print(tab)
+
+test = fs.sashimi_file('gtk-hotkey-marshal.c')
+print(test)
+findType(test[0])
+
+print(type(test))
+print(type(words))
 
 #Transform the line in an ASCII code
 string = ''
