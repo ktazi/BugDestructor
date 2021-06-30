@@ -13,3 +13,6 @@ Pour acceder à notre programme il vous faut:
 # Démarer 
 Lancer le fichier : index.html
 
+# Ressources
+Entièrment réalisé en Pyhton.
+L'entrainement du programme est supervisé.
