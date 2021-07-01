@@ -143,6 +143,7 @@ def sashimi_df(df):
         content = remove_cpp_comment(content)
         content = remove_char(content, '\t')
         content = remove_char(content, '\n')
+        content = remove_char(content, '\r')
         # sashimi string et char
         lines = sashimi_string(content)
         # sashimi caracteres de separation !
@@ -162,6 +163,5 @@ def sashimi_df(df):
         for l in lines :
             for word in l :
                 t.append(word)
-        print(t)
         tab.append(t)
     return tab
