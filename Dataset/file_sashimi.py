@@ -134,34 +134,34 @@ def sashimi_ch(ta):
             t.append(st)
     return remove_blank_table(t)
 
-
-def sashimi_file(link):
-    content = "".join(open(link).readlines())
-    # removing all the comments
-    content = remove_c_comments(remove_preprocess(content))
-    content = remove_cpp_comment(content)
-    content = remove_char(content, '\t')
-    content = remove_char(content, '\n')
-    #sashimi string et char
-    lines = sashimi_string(content)
-    print(lines)
-    # sashimi caracteres de separation !
-    for deli in delimiters:
+def sashimi_df(df):
+    tab = []
+    for i in range(len(df["answer"])) :
+        content = df["answer"][i]
+        # removing all the comments
+        content = remove_c_comments(remove_preprocess(content))
+        content = remove_cpp_comment(content)
+        content = remove_char(content, '\t')
+        content = remove_char(content, '\n')
+        # sashimi string et char
+        lines = sashimi_string(content)
+        # sashimi caracteres de separation !
+        for deli in delimiters:
+            t = []
+            for line in lines:
+                if line != deli:
+                    t += sashimi_char(line, deli)
+                else:
+                    t += deli
+            lines = t
+        # sashimi lignes
+        li = sashimi_lines(lines)
+        lines = remove_space(li)
+        lines = remove_blank_table(lines)
         t = []
-        for line in lines:
-            if line != deli:
-                t += sashimi_char(line, deli)
-            else:
-                t += deli
-        lines = t
-
-    # sashimi lignes
-
-
-    li = sashimi_lines(lines)
-    lines = remove_space(li)
-    lines = remove_blank_table(lines)
-    return lines
-
-
-print(sashimi_file("gtk-hotkey-marshal.c"))
+        for l in lines :
+            for word in l :
+                t.append(word)
+        print(t)
+        tab.append(t)
+    return tab

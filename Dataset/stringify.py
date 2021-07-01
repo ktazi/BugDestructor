@@ -1,5 +1,3 @@
-import file_sashimi as fs
-
 def isOperator(string):
     list = ['+','-','/']
 
@@ -94,6 +92,7 @@ class Type(enum.Enum):
     volatile = 44
 
 def findType(words):
+    tab = []
     for cpt in range(len(words)):
         tab.append([words[cpt], 0])
         if len(words[cpt]) == 1:
@@ -193,37 +192,19 @@ def findType(words):
             elif words[cpt] == "volatile":
                 tab[cpt][1] = 44  
             elif words[cpt].isidentifier():
-                tab[cpt][1] = 1      
+                tab[cpt][1] = 1
+    return tab
 
+def to_ascii(tab) :
+    string = ''
+    for word in tab:
+        c = chr(65 + word[1])
+        string += c
+    return string
+
+def lex_to_str(t) :
+    return [to_ascii(findType(i)) for i in t]
 
 #keywords = ["while", "auto","break","case","const","continue","default","do","else","enum","extern","for","goto","if","register","return","sizeof","static","struct","switch","typedef","union","void","volatile"]
-
-  
-words = ["ahdi", "a", "<", "volatile",  "++",  "static", ";", "ahdi", "'hello'", "null", 'NULL', '>=', '=', '==', 'short']
-tab = []     
-
-findType(words)
-
-cpt = 0
-for i in Type:
-   print(i , " : ", cpt)
-   cpt +=1
-
-#print(tab)
-
-test = fs.sashimi_file('gtk-hotkey-marshal.c')
-print(test)
-findType(test[0])
-
-print(type(test))
-print(type(words))
-
-#Transform the line in an ASCII code
-string = ''
-for word in tab:
-    c = chr(65+word[1])
-    string += c
-
-print(string)
 
 
