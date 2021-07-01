@@ -28,7 +28,7 @@ def create_dataf():
     tab = stringify.lex_to_str(tab)
     # put it in the dataframe
     df["answer"] = pd.array(tab)
-    return df
+    df.to_csv(r'database.csv', index=False)
 
 print(create_dataf())
 
