@@ -9,14 +9,14 @@ def conv_json():
         data = json.load(read_file)
     json_string = json.dumps(data)
     df = pd.read_json(json_string)
-    with open('output', 'w') as f:
+    with open('test/output', 'w') as f:
         for i in df["answer"] :
             f.write(file_sashimi.remove_char(file_sashimi.remove_char(i,'\n'),'\r')+"\n")
 
 def create_dataf():
-    with open("output","r") as f :
+    with open("test/output", "r") as f :
         ar = np.array(f.readlines())
-    with open("res","r") as f :
+    with open("test/res", "r") as f :
         ar2 = np.array(f.readlines())
         for i in range(len(ar2)):
             ar2[i] = ar2[i][:-1]
