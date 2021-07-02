@@ -1,4 +1,3 @@
 int main(){
-float tab[] = {1.2,2.1,3.1,4.0};
-printf("%f",average(tab, 4));
+printf("%f",absolute_value(4.0));
 }

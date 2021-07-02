@@ -5,10 +5,11 @@ from Dataset import stringify
 import numpy as np
 
 def conv_json():
-    with open("answers_1000.json", "r") as read_file:
+    with open("Valeur_absolue_dun_nombre.json", "r") as read_file:
         data = json.load(read_file)
     json_string = json.dumps(data)
     df = pd.read_json(json_string)
+    print(df)
     with open('test/output', 'w') as f:
         for i in df["answer"] :
             f.write(file_sashimi.remove_char(file_sashimi.remove_char(i,'\n'),'\r')+"\n")
@@ -28,7 +29,8 @@ def create_dataf():
     tab = stringify.lex_to_str(tab)
     # put it in the dataframe
     df["answer"] = pd.array(tab)
-    df.to_csv(r'database.csv', index=False)
+    df.to_csv(r'val_abs.csv', index=False)
 
-print(create_dataf())
+#conv_json()
 
+create_dataf()
