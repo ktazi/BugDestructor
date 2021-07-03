@@ -4,10 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="home.css">
+    <link rel="stylesheet" href="../../static/home.css">
     <title>Projet Voltaire 2.0</title>
-    <link rel="shortcut icon" type="image/png" href="img/img-logo.png" />
+    <link rel="shortcut icon" type="image/png" href="../../static/img/img-logo.png" />
     <script src="https://kit.fontawesome.com/eea079109c.js" crossorigin="anonymous"></script>
+
 </head> 
 
 <body> 
@@ -38,6 +39,7 @@
     <!-- Our services section -->
     <section id="services">
         <div class="services container">
+
             <div class="service-top">
                 <h1 class="section-title">Projet Voltaire <span>2.0</span></h1>
                 <p>Apprendre à coder c’est apprendre une nouvelle langue, une nouvelle syntaxe, une nouvelle façon de nous exprimer !
@@ -46,17 +48,17 @@
             </div>
             <div class="service-bottom">
                 <div class="service-item">
-                    <div class="icon"><img src="./img/home/temps-rapide.png" /></div>
+                    <div class="icon"><img src="../../static/img/home/temps-rapide.png" /></div>
                     <h2>Rapide</h2>
                     <p>Analyse votre code en quelques secondes !</p>
                 </div>
                 <div class="service-item">
-                    <div class="icon"><img src="./img/home/checkmark.png" /></div>
+                    <div class="icon"><img src="../../static/img/home/checkmark.png" /></div>
                     <h2>Précis</h2>
                     <p>Trouve tous les problèmes d'innatention de votre code!</p>
                 </div>
                 <div class="service-item">
-                    <div class="icon"><img src="./img/home/contour-de-vue-superieure-du-cerveau.png" /></div>
+                    <div class="icon"><img src="../../static/img/home/contour-de-vue-superieure-du-cerveau.png" /></div>
                     <h2>Intuitif</h2>
                     <p>Une interface pensez pour vous!</p>
                 </div>
@@ -88,42 +90,43 @@
                     </div>
                 </div>
             </div>
-            
-            <div class="all-interfaces">
+
+            <form action="{{ url_for('submit') }}" method="post">
+
+                <div class="all-interfaces">
                 <div class="interface-item">
                     <div class="interface-info">
                         <div class="text">
                             <p>Mon code</p>
                         </div>
-                        <form method="post" action="traitement.php">
                             <p>
                                 <label for="ameliorer">
                                 </label>
                                 <br />
-                                <textarea name="ameliorer" id="ameliorer" rows="20" cols="60" >
-                                </textarea>       
+                                <textarea name="text" id="ameliorer" rows="20" cols="60">{{ fudge }}</textarea>
                             </p>
-                         </form>
+
                     </div>
                     <div class="interface-info">
                         <div class="text">
                             <p>Notre solution</p>
                         </div>
-                        <form method="post" action="traitement.php">
                             <p>
                                 <label for="correction">
                                 </label>
                                 <br />
-                                <textarea name="correction" id="correction" rows="20" cols="60" readonly="readonly">
-                                </textarea>       
+                                <textarea id="solution" readonly="readonly" rows="20" cols="60">{{ pouet }}</textarea>
                             </p>
-                         </form>
+
+
                     </div>
                 </div>
                 <div>
-                    <a href="#interfaces" id="verification" type="button" class="btn">Verification de mon code</a>
+                    <input href="#interfaces" type="submit" value="Verification de mon code" class="btn"></input>
                 </div>
-            </div>
+                </div>
+            </form>
+
         </div>
     
     </section> 
@@ -153,7 +156,7 @@
         </div>
     </section>
     <!-- End Footer -->
-    <script src="./home.js"></script>
+    <script src="home.js"></script>
 </body>
 
 </html>

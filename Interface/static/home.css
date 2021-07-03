@@ -104,7 +104,7 @@ p {
 
 /* home-cover Section */
 #home-cover {
-	background-image: url(./img/home/Couverture.PNG);
+	background-image: url(img/home/Couverture.PNG);
 	background-size: cover;
 	background-position: top center;
 	position: relative;
