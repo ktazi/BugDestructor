@@ -1,3 +1,0 @@
-int main(){
-printf("%f",absolute_value(4.0));
-}
