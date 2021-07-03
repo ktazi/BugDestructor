@@ -7,8 +7,7 @@ Projet Voltaire 2.0 est une application Web dont le but est de permettre à un u
 
 # Pré-requis
 Pour acceder à notre programme il vous faut: 
-* télécharger notre projet : https://github.com/ktazi/BugDestructor.git
-* lancer le blablabla
+* télécharger notre projet : git clone https://github.com/ktazi/BugDestructor.git
 
 # Démarer 
 Lancer le fichier : index.html
