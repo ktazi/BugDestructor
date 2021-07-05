@@ -88,7 +88,6 @@ def remove_cpp_comment(st):
             st = st[:deb]
     return st
 
-
 def remove_space(t):
     tab = []
     it = 0
@@ -131,6 +130,8 @@ def sashimi_ch(ta):
                 else :
                     st = st[st.find("'")+1:]
             t.append(st)
+        else :
+            t.append(st)
     return remove_blank_table(t)
 
 def sashimi_df(df):
@@ -144,7 +145,7 @@ def sashimi_df(df):
         content = remove_char(content, '\n')
         content = remove_char(content, '\r')
         # sashimi string et char
-        lines = sashimi_string(content)
+        lines = sashimi_ch(sashimi_string(content))
         # sashimi caracteres de separation !
         for deli in delimiters:
             t = []
@@ -174,7 +175,7 @@ def sashimi_str(txt):
     content = remove_char(content, '\n')
     content = remove_char(content, '\r')
     # sashimi string et char
-    lines = sashimi_string(content)
+    lines = sashimi_ch(sashimi_string(content))
     # sashimi caracteres de separation !
     for deli in delimiters:
         t = []

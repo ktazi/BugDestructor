@@ -17,6 +17,4 @@ def return_prediction_moy(txt):
     X = sequence.pad_sequences(X, maxlen=265)
     print(model.predict(X))
 
-
-
 return_prediction_moy("float average(float values[], int n_vals){int i;float res=0;for(i=0;i<n_vals;i++)res+=values[i];return (res/n_values);")
