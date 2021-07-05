@@ -1,5 +1,5 @@
 from flask import Flask, request, render_template
-
+from Dataset.prepare_data import return_prediction_moy
 app = Flask(__name__)
 
 pouet = ""
@@ -15,9 +15,8 @@ def index():
 def submit():
     text = request.form['text']
     fudge = text
-    text += "tamêrelapute"
+    text = return_prediction_moy(text)
     pouet = text
-
     return render_template('Interface/Index.html', pouet=pouet, fudge=fudge)
 
 

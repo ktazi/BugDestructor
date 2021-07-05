@@ -667,3 +667,8 @@ p {
 	}
 }
 /* End  Media Query For Desktop */
+
+code {
+  font-family: monospace;
+	background-color: #ececec;
+}
