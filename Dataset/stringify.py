@@ -1,48 +1,56 @@
 def isOperator(string):
-    list = ['+','-','/']
+    list = ['+', '-', '/']
 
-    if(string in list):
+    if (string in list):
         return True
     return False
+
 
 def isValue(string):
-    #print('AAAAAAAAAAAAAAAAAAAAAAAAAA')
-    #print(string)
-    if (string.isnumeric() == True or string.replace('.','',1).isdigit()) or ((string[0] == "'" and string[-1]) == "'" or (string[0] == "\"" and string[-1] == "\"")):
+    string = string.replace('.', '', 1)
+    string = string.replace('e', '', 1)
+
+    if (string.isnumeric() == True or string == "") or (
+            (string[0] == "'" and string[-1]) == "'" or (string[0] == "\"" and string[-1] == "\"")):
         return True
     return False
+
 
 def isComparator(string):
-    list = ['<','>', '<=', '>=', '==', '!=']
+    list = ['<', '>', '<=', '>=', '==', '!=']
 
-    if(string in list):
+    if (string in list):
         return True
     return False
+
 
 def isIterrator(string):
-    list = ['++','--']
+    list = ['++', '--']
 
-    if(string in list):
+    if (string in list):
         return True
     return False
+
 
 def isAffectation(string):
-    list = ['=','+=','-=']
+    list = ['=', '+=', '-=']
 
-    if(string in list):
+    if (string in list):
         return True
     return False
 
-def isType(string):
-    list = ['char','int','float', 'double', 'void']
 
-    if(string in list):
+def isType(string):
+    list = ['char', 'int', 'float', 'double', 'void']
+
+    if (string in list):
         return True
     return False
 
 
 import enum
-  
+
+
 # creating enumerations using class
 class Type(enum.Enum):
     notDefined = 0
@@ -90,6 +98,7 @@ class Type(enum.Enum):
     union = 42
     void = 43
     volatile = 44
+
 
 def findType(words):
     tab = []
@@ -190,21 +199,22 @@ def findType(words):
             elif words[cpt] == "void":
                 tab[cpt][1] = 43
             elif words[cpt] == "volatile":
-                tab[cpt][1] = 44  
+                tab[cpt][1] = 44
             elif words[cpt].isidentifier():
                 tab[cpt][1] = 1
     return tab
 
-def to_ascii(tab) :
+
+def to_ascii(tab):
     string = ''
     for word in tab:
         c = chr(65 + word[1])
         string += c
     return string
 
-def lex_to_str(t) :
+
+def lex_to_str(t):
     return [to_ascii(findType(i)) for i in t]
 
-#keywords = ["while", "auto","break","case","const","continue","default","do","else","enum","extern","for","goto","if","register","return","sizeof","static","struct","switch","typedef","union","void","volatile"]
-
+# keywords = ["while", "auto","break","case","const","continue","default","do","else","enum","extern","for","goto","if","register","return","sizeof","static","struct","switch","typedef","union","void","volatile"]
 

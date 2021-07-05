@@ -194,3 +194,5 @@ def sashimi_str(txt):
         for word in l:
             t.append(word)
     return t
+
+print(sashimi_str('mystring = "";'))
