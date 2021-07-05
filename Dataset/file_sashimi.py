@@ -1,4 +1,3 @@
-
 delimiters = [' ', '*', '/', ',', ';', '(', ')', '[', ']', '{', '}', '=', '<', '>', '+', '-', '&', '|', '!','?',':']
 
 def sashimi_char(st, c):
@@ -165,3 +164,32 @@ def sashimi_df(df):
                 t.append(word)
         tab.append(t)
     return tab
+
+def sashimi_str(txt):
+    content = txt
+    # removing all the comments
+    content = remove_c_comments(remove_preprocess(content))
+    content = remove_cpp_comment(content)
+    content = remove_char(content, '\t')
+    content = remove_char(content, '\n')
+    content = remove_char(content, '\r')
+    # sashimi string et char
+    lines = sashimi_string(content)
+    # sashimi caracteres de separation !
+    for deli in delimiters:
+        t = []
+        for line in lines:
+            if line != deli:
+                t += sashimi_char(line, deli)
+            else:
+                t += deli
+        lines = t
+    # sashimi lignes
+    li = sashimi_lines(lines)
+    lines = remove_space(li)
+    lines = remove_blank_table(lines)
+    t = []
+    for l in lines:
+        for word in l:
+            t.append(word)
+    return t
