@@ -5,7 +5,7 @@ from Dataset import stringify
 import numpy as np
 
 def conv_json():
-    with open("Json/Supression_de_valeur_dans_un_tableau.json", "r") as read_file:
+    with open("Json/moyenne.json", "r") as read_file:
         data = json.load(read_file)
     json_string = json.dumps(data)
     df = pd.read_json(json_string)
@@ -29,8 +29,10 @@ def create_dataf():
     tab = stringify.lex_to_str(tab)
     # put it in the dataframe
     df["answer"] = pd.array(tab)
-    df.to_csv(r'tab_sup.csv', index=False)
+    df.to_csv(r'moyenne_bis.csv', index=False)
 
+
+#1 comment create dataf
 #conv_json()
-
+#2 comment conv_json
 create_dataf()

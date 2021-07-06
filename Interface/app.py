@@ -7,7 +7,6 @@ fudge = ""
 
 @app.route('/')
 def index():
-
     return render_template('Interface/Index.html', pouet=pouet)
 
 
@@ -18,7 +17,6 @@ def submit():
     text = return_prediction_moy(text)
     pouet = text
     return render_template('Interface/Index.html', pouet=pouet, fudge=fudge)
-
 
 
 if __name__ == '__main__':
