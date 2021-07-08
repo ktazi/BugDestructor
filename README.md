@@ -1,18 +1,35 @@
 # Projet Voltaire 2.0
-Ce projet a été réalisé par: Lisa GAILLARD, Charlotte MAUVEZIN, Martin REVILLON, Victorine RICHARD et Kenza TAZI.
-Réalisé durant le Mastercamp de l'EFREI Paris: 3/06/2021 - 09/07/2021
+
+### Contexte et auteurs
+
+Ce projet a été réalisé par: Lisa GAILLARD, Charlotte MAUVEZIN, Martin REVILLON, Victorine RICHARD et Kenza TAZI durant le Mastercamp Datascience d'EFREI Paris: 3/06/2021 - 09/07/2021
 
 ### Description
-Projet Voltaire 2.0 est une application Web dont le but est de permettre à un utilisateur de vérifier la présence potentielle d'erreurs dans un code en C sans l'aide d'un compilateur
 
-### Téléchargement
+Déterminer si un programme en C compile ou pas 
+sans le faire passer par un compilateur, 
+voilà le défi que nous avons tenté de relever avec ce projet !
+
+Nous avons conçu une intelligence artificielle qui, pour des codes 
+assez rapprochés (réponses aux mêmes exercices de la plateforme [nowledgable](https://nowledgeable.com/)) arrive a prédire si ceux-ci compilent ou pas.
+
+### Lancer le projet
  
-* télécharger notre projet : git clone https://github.com/ktazi/BugDestructor.git
-### Dependencies
-* installer flask:  `pip install flask`
-* installer numpy:  `pip install numpy`
-* installer pandas:  `pip install pandas`
-* installer tensorflow:  `pip install tensorflow`
+##### Consulter les notebooks
+
+* Télécharger notre projet : `git clone https://github.com/ktazi/BugDestructor.git`
+* Installer si ce n'est pas fait [python](https://www.python.org/downloads/), [pip](https://pip.pypa.io/en/stable/installing/) et [jupyter notebook](https://jupyter.org/install)
+* Installer si ce n'est pas fait les dépendences `pip install flask numpy pandas tensorflow`
+* Lancer `jupyter notebook Demo` depuis la racine de notre projet
+* Cliquer dans l'ordre sur les 3 notebooks
+
+##### Lancer le site vitrine (attention action non disponible sur tous les systèmes d'exploitation)
+
+* Télécharger notre projet : `git clone https://github.com/ktazi/BugDestructor.git`
+* Installer si ce n'est pas fait [python](https://www.python.org/downloads/), [pip](https://pip.pypa.io/en/stable/installing/)
+* Installer si ce n'est pas fait les dépendences `pip install flask numpy pandas tensorflow`
+* Lancer `python Interface app.py` depuis la racine de notre projet
+
 
 
 
