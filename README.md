@@ -19,7 +19,7 @@ assez rapprochés (réponses aux mêmes exercices de la plateforme [nowledgable]
 
 * Télécharger notre projet : `git clone https://github.com/ktazi/BugDestructor.git`
 * Installer si ce n'est pas fait [python](https://www.python.org/downloads/), [pip](https://pip.pypa.io/en/stable/installing/) et [jupyter notebook](https://jupyter.org/install)
-* Installer si ce n'est pas fait les dépendences `pip install flask numpy pandas tensorflow`
+* Installer si ce n'est pas fait les dépendences `pip install flask numpy pandas tensorflow scikit-learn`
 * Lancer `jupyter notebook Demo` depuis la racine de notre projet
 * Cliquer dans l'ordre sur les 3 notebooks
 
@@ -27,7 +27,7 @@ assez rapprochés (réponses aux mêmes exercices de la plateforme [nowledgable]
 
 * Télécharger notre projet : `git clone https://github.com/ktazi/BugDestructor.git`
 * Installer si ce n'est pas fait [python](https://www.python.org/downloads/), [pip](https://pip.pypa.io/en/stable/installing/)
-* Installer si ce n'est pas fait les dépendences `pip install flask numpy pandas tensorflow`
+* Installer si ce n'est pas fait les dépendences `pip install flask numpy pandas tensorflow scikit-learn`
 * Lancer `python Interface app.py` depuis la racine de notre projet
 
 
