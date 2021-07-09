@@ -2,7 +2,7 @@
 
 ### Contexte et auteurs
 
-Ce projet a été réalisé par: Lisa GAILLARD, Charlotte MAUVEZIN, Martin REVILLON, Victorine RICHARD et Kenza TAZI durant le Mastercamp Datascience d'EFREI Paris: 3/06/2021 - 09/07/2021
+Ce projet a été réalisé par: Lisa GAILLARD, Charlotte MAUVEZIN, Martin REVILLON, Victorine RICHARD et Kenza TAZI durant le Mastercamp Datascience d'EFREI Paris: 3/06/2021 - 09/07/2021.
 
 ### Description
 
